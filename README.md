@@ -18,7 +18,7 @@ Async control flow patterns using promises based on https://github.com/caolan/as
  - [] every
 - Control Flow
  - [] series
- - [] parallel
+ - [x] parallel
  - [] waterfall
  - [] retry
  - [] times
