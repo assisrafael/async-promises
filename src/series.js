@@ -26,7 +26,7 @@ function seriesObjectTasks(tasks) {
 	});
 }
 
-module.exports = function parallel(tasks) {
+module.exports = function series(tasks) {
 	if (Array.isArray(tasks)) {
 		return seriesArrayTasks(tasks);
 	} else if (typeof tasks !== 'object') {

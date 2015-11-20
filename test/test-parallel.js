@@ -5,7 +5,7 @@ import * as asyncP from '../src/async-promises.js';
 
 test('parallel', t => {
 	var callOrder = [];
-	asyncP.parallel([
+	return asyncP.parallel([
 		function() {
 			return new Promise(function(resolve) {
 				setTimeout(() => {
@@ -36,23 +36,21 @@ test('parallel', t => {
 		t.same(results, [1, 2, [3, 3]]);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+	});
 });
 
 test('parallel empty array', t => {
-	asyncP.parallel([])
+	return asyncP.parallel([])
 	.then((results) => {
 		t.same(results, []);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+	});
 });
 
 test('parallel error', t => {
 	var callOrder = [];
-	asyncP.parallel([
+	return asyncP.parallel([
 		function() {
 			return new Promise(function(resolve) {
 				throw new Error('error');
@@ -70,14 +68,13 @@ test('parallel error', t => {
 	.then(() => {
 		t.fail('should not be called');
 	}, (err) => {
-		t.pass(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+		t.is(err.message, 'error');
+	});
 });
 
 test('parallel object', t => {
 	var callOrder = [];
-	asyncP.parallel({
+	return asyncP.parallel({
 		one() {
 			return new Promise(function(resolve) {
 				setTimeout(() => {
@@ -112,12 +109,11 @@ test('parallel object', t => {
 		});
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+	});
 });
 
-test('paralel falsy return values', t => {
-	asyncP.parallel({
+test('parallel falsy return values', t => {
+	return asyncP.parallel({
 		falseValue() {
 			return Promise.resolve(false);
 		},
@@ -138,6 +134,5 @@ test('paralel falsy return values', t => {
 		t.is(results.nullValue, null);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+	});
 });

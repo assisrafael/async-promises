@@ -30,7 +30,7 @@ module.exports = function parallel(tasks) {
 	if (Array.isArray(tasks)) {
 		return parallelArrayTasks(tasks);
 	} else if (typeof tasks !== 'object') {
-		return Promise.reject(new Error('Tipo de parâmetro inválido'));
+		return Promise.reject(new Error('First argument to parallel must be an array or an object'));
 	}
 
 	return parallelObjectTasks(tasks);

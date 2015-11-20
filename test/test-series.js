@@ -5,7 +5,7 @@ import * as asyncP from '../src/async-promises.js';
 
 test('series', t => {
 	var callOrder = [];
-	asyncP.series([
+	return asyncP.series([
 		function() {
 			return new Promise(function(resolve) {
 				setTimeout(() => {
@@ -35,22 +35,20 @@ test('series', t => {
 		t.same(results, [1, 2, [3, 3]]);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+	});
 });
 
 test('series empty array', t => {
-	asyncP.series([])
+	return asyncP.series([])
 	.then((results) => {
 		t.same(results, []);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+	});
 });
 
 test('series error', t => {
-	asyncP.series([
+	return asyncP.series([
 		function() {
 			return new Promise(function(resolve) {
 				throw new Error('error');
@@ -58,22 +56,18 @@ test('series error', t => {
 		},
 		function() {
 			t.fail(`should not be called`);
-			return new Promise(function(resolve) {
-				throw new Error('error2');
-			});
 		}
 	])
 	.then(() => {
 		t.fail('should not be called');
 	}, (err) => {
-		t.pass(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+		t.is(err.message, 'error');
+	});
 });
 
 test('series object', t => {
 	var callOrder = [];
-	asyncP.series({
+	return asyncP.series({
 		one() {
 			return new Promise(function(resolve) {
 				setTimeout(() => {
@@ -108,12 +102,11 @@ test('series object', t => {
 		});
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+	});
 });
 
 test('series falsy return values', t => {
-	asyncP.series({
+	return asyncP.series({
 		falseValue() {
 			return Promise.resolve(false);
 		},
@@ -134,6 +127,5 @@ test('series falsy return values', t => {
 		t.is(results.nullValue, null);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+	});
 });

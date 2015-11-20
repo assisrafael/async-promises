@@ -5,7 +5,7 @@ import * as asyncP from '../src/async-promises.js';
 
 test('each', t => {
 	var args = [];
-	asyncP.each([1, 3, 2], (x) => {
+	return asyncP.each([1, 3, 2], (x) => {
 		return new Promise(function(resolve) {
 			setTimeout(() => {
 				args.push(x);
@@ -17,13 +17,11 @@ test('each', t => {
 		t.same(args, [1, 2, 3]);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
-	})
-	.then(t.end);
+	});
 });
 
 test('each empty array', t => {
-	t.plan(1);
-	asyncP.each([], (x) => {
+	return asyncP.each([], (x) => {
 		t.fail('iterator should not be called');
 	})
 	.then(() => {
@@ -34,10 +32,9 @@ test('each empty array', t => {
 });
 
 test('each empty array, with other property on the array', t => {
-	t.plan(1);
 	var myArray = [];
 	myArray.myProp = 'anything';
-	asyncP.each(myArray, (x) => {
+	return asyncP.each(myArray, (x) => {
 		t.fail('iterator should not be called');
 	})
 	.then(() => {
@@ -48,8 +45,7 @@ test('each empty array, with other property on the array', t => {
 });
 
 test('each error', t => {
-	t.plan(1);
-	asyncP.each([1, 2, 3], (x) => {
+	return asyncP.each([1, 2, 3], (x) => {
 		return Promise.reject('error');
 	})
 	.then(() => {
