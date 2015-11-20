@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-	each: require('./each')
+	each: require('./each'),
+	eachSeries: require('./each-series.js')
 };

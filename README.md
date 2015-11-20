@@ -7,7 +7,7 @@ Async control flow patterns using promises based on https://github.com/caolan/as
 
 - Collections
  - [x] each
- - [] eachSeries
+ - [x] eachSeries
  - [] map
  - [] mapSeries
  - [] filter
