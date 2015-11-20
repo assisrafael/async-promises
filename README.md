@@ -8,18 +8,18 @@ Async control flow patterns using promises based on https://github.com/caolan/as
 - Collections
  - [x] each
  - [x] eachSeries
- - [] map
- - [] mapSeries
- - [] filter
- - [] filterSeries
- - [] reduce
- - [] reduceRight
- - [] some
- - [] every
+ - [ ] map
+ - [ ] mapSeries
+ - [ ] filter
+ - [ ] filterSeries
+ - [ ] reduce
+ - [ ] reduceRight
+ - [ ] some
+ - [ ] every
 - Control Flow
- - [] series
+ - [x] series
  - [x] parallel
- - [] waterfall
- - [] retry
- - [] times
- - [] timesSeries
+ - [x] waterfall
+ - [ ] retry
+ - [ ] times
+ - [ ] timesSeries
