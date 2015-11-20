@@ -1,0 +1,32 @@
+{
+  "name": "async-promises",
+  "version": "0.0.1",
+  "description": "Async control flow patterns using promises based on https://github.com/caolan/async",
+  "main": "./src/async-promises.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/assisrafael/async-promises.git"
+  },
+  "keywords": [
+    "async",
+    "promise",
+    "control",
+    "flow",
+    "patterns"
+  ],
+  "author": "Igor Rafael <igor.rafael@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/assisrafael/async-promises/issues"
+  },
+  "homepage": "https://github.com/assisrafael/async-promises#readme",
+  "devDependencies": {
+    "ava": "^0.5.0"
+  }
+}

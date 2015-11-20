@@ -1,2 +1,25 @@
 # async-promises
-Async control patterns based on (caolan/async)[https://github.com/caolan/async]
+
+Async control flow patterns using promises based on https://github.com/caolan/async
+
+
+## Roadmap
+
+- Collections
+ - [x] each
+ - [] eachSeries
+ - [] map
+ - [] mapSeries
+ - [] filter
+ - [] filterSeries
+ - [] reduce
+ - [] reduceRight
+ - [] some
+ - [] every
+- Control Flow
+ - [] series
+ - [] parallel
+ - [] waterfall
+ - [] retry
+ - [] times
+ - [] timesSeries
