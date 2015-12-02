@@ -1,5 +1,7 @@
 # async-promises [![Build Status](https://travis-ci.org/assisrafael/async-promises.svg)](https://travis-ci.org/assisrafael/async-promises)
 
+[![NPM](https://nodei.co/npm/async-promises.png?compact=true)](https://nodei.co/npm/async-promises/)
+
 Async control flow patterns using promises based on https://github.com/caolan/async
 
 It needs an ES6 environment to work (Promises, Block-scoped binding constructs, etc) like modern browsers and node 4.
