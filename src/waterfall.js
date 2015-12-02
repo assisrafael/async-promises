@@ -19,7 +19,7 @@ module.exports = function waterfall(tasks) {
 			return Promise.resolve(value);
 		}
 
-		return Promise.resolve(value).then((values) => {
+		return Promise.resolve(value).then(function(values) {
 			if (Array.isArray(values)) {
 				return task.apply(null, values);
 			}

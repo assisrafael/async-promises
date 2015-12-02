@@ -5,11 +5,11 @@ let eachSeries = require('./each-series.js');
 function seriesArrayTasks(tasks) {
 	var results = [];
 
-	return eachSeries(tasks, (task) => {
-		return Promise.resolve(task()).then((result) => {
+	return eachSeries(tasks, function(task) {
+		return Promise.resolve(task()).then(function(result) {
 			results.push(result);
 		});
-	}).then(() => {
+	}).then(function() {
 		return results;
 	});
 }
@@ -17,11 +17,11 @@ function seriesArrayTasks(tasks) {
 function seriesObjectTasks(tasks) {
 	var results = {};
 
-	return eachSeries(Object.keys(tasks), (taskName) => {
-		return Promise.resolve(tasks[taskName]()).then((result) => {
+	return eachSeries(Object.keys(tasks), function(taskName) {
+		return Promise.resolve(tasks[taskName]()).then(function(result) {
 			results[taskName] = result;
 		});
-	}).then(() => {
+	}).then(function() {
 		return results;
 	});
 }

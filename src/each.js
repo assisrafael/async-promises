@@ -3,7 +3,7 @@
 module.exports = function each(arr, iterator) {
 	var promises = [];
 
-	arr.forEach((item) => {
+	arr.forEach(function(item) {
 		promises.push(iterator(item));
 	});
 

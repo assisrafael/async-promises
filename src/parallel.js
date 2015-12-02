@@ -3,7 +3,7 @@
 let asyncEach = require('./each.js');
 
 function parallelArrayTasks(tasks) {
-	return Promise.all(tasks.map((task) => {
+	return Promise.all(tasks.map(function(task) {
 		return typeof task === 'function' ? task() : task;
 	}));
 }
@@ -11,17 +11,17 @@ function parallelArrayTasks(tasks) {
 function parallelObjectTasks(tasks) {
 	var results = {};
 
-	return asyncEach(Object.keys(tasks), (key) => {
+	return asyncEach(Object.keys(tasks), function(key) {
 		var promise = tasks[key];
 
 		if (typeof promise === 'function') {
 			promise = promise();
 		}
 
-		return Promise.resolve(promise).then((result) => {
+		return Promise.resolve(promise).then(function(result) {
 			results[key] = result;
 		});
-	}).then(() => {
+	}).then(function() {
 		return results;
 	});
 }
