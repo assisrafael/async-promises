@@ -1,4 +1,4 @@
-# async-promises
+# async-promises [![Build Status](https://travis-ci.org/assisrafael/async-promises.svg)](https://travis-ci.org/assisrafael/async-promises)
 
 Async control flow patterns using promises based on https://github.com/caolan/async
 
