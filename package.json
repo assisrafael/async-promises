@@ -1,6 +1,6 @@
 {
   "name": "async-promises",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Async control flow patterns using promises based on https://github.com/caolan/async",
   "main": "./src/async-promises.js",
   "directories": {
