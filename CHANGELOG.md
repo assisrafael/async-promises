@@ -1,5 +1,15 @@
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/assisrafael/async-promises/compare/v0.1.0...v0.1.1) (2015-12-02)
+
+
+### Bug Fixes
+
+* add iojs 2.5 compatibility ([92238eb](https://github.com/assisrafael/async-promises/commit/92238eb))
+
+
+
 <a name="0.1.0"></a>
-## 0.1.0 (2015-11-20)
+# [0.1.0](https://github.com/assisrafael/async-promises/compare/3dda59b...v0.1.0) (2015-11-20)
 
 
 ### Features
