@@ -5,7 +5,8 @@ import * as asyncP from '../src/async-promises.js';
 
 test('eachSeries', t => {
 	var args = [];
-	return asyncP.eachSeries([1, 2, 3], (x) => {
+	var arr = [1, 2, 3];
+	return asyncP.eachSeries(arr, (x) => {
 		return new Promise((resolve) => {
 			setTimeout(() => {
 				args.push(x);
@@ -14,7 +15,7 @@ test('eachSeries', t => {
 		});
 	})
 	.then(() => {
-		t.same(args, [1, 2, 3]);
+		t.same(args, arr);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});
