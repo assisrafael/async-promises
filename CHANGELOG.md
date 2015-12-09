@@ -1,3 +1,13 @@
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/assisrafael/async-promises/compare/v0.1.1...v0.1.2) (2015-12-09)
+
+
+### Bug Fixes
+
+* **each-series:** preserve the original array immutable ([c36b307](https://github.com/assisrafael/async-promises/commit/c36b307))
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/assisrafael/async-promises/compare/v0.1.0...v0.1.1) (2015-12-02)
 
