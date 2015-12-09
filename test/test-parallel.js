@@ -29,11 +29,14 @@ test('parallel', t => {
 					resolve([3, 3]);
 				}, 25);
 			});
+		},
+		function() {
+			return 4;
 		}
 	])
 	.then((results) => {
 		t.same(callOrder, [3, 1, 2]);
-		t.same(results, [1, 2, [3, 3]]);
+		t.same(results, [1, 2, [3, 3], 4]);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});
@@ -98,6 +101,9 @@ test('parallel object', t => {
 					resolve([3, 3]);
 				}, 25);
 			});
+		},
+		four() {
+			return 4;
 		}
 	})
 	.then((results) => {
@@ -105,7 +111,8 @@ test('parallel object', t => {
 		t.same(results, {
 			one: 1,
 			two: 2,
-			three: [3, 3]
+			three: [3, 3],
+			four: 4
 		});
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
