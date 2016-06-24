@@ -30,7 +30,7 @@ module.exports = function series(tasks) {
 	if (Array.isArray(tasks)) {
 		return seriesArrayTasks(tasks);
 	} else if (typeof tasks !== 'object') {
-		return Promise.reject(new Error('Tipo de parâmetro inválido'));
+		return Promise.reject(new Error('Invalid parameter type'));
 	}
 
 	return seriesObjectTasks(tasks);
