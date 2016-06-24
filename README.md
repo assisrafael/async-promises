@@ -44,5 +44,5 @@ return asyncP.each([1, 3, 2], (x) => {
  - [x] parallel
  - [x] waterfall
  - [ ] retry
- - [ ] times
- - [ ] timesSeries
+ - [x] times
+ - [x] timesSeries
