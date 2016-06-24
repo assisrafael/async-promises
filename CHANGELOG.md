@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **timtes:** implement "times" and "timesSeries" control flow functions ([94e354f](https://github.com/assisrafael/async-promises/commit/94e354f))
+* **times:** implement "times" and "timesSeries" control flow functions ([94e354f](https://github.com/assisrafael/async-promises/commit/94e354f))
 
 
 
