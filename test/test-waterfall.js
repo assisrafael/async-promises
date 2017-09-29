@@ -38,8 +38,8 @@ test('waterfall', t => {
 		}
 	])
 	.then((result) => {
-		t.same(callOrder, ['fn1', 'fn2', 'fn3', 'fn4']);
-		t.same(result, 'test');
+		t.deepEqual(callOrder, ['fn1', 'fn2', 'fn3', 'fn4']);
+		t.is(result, 'test');
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});
@@ -48,7 +48,7 @@ test('waterfall', t => {
 test('waterfall empty array', t => {
 	return asyncP.waterfall([])
 	.then((result) => {
-		t.same(result, undefined);
+		t.is(result, undefined);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});

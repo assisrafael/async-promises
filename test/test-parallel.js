@@ -35,8 +35,8 @@ test('parallel', t => {
 		}
 	])
 	.then((results) => {
-		t.same(callOrder, [3, 1, 2]);
-		t.same(results, [1, 2, [3, 3], 4]);
+		t.deepEqual(callOrder, [3, 1, 2]);
+		t.deepEqual(results, [1, 2, [3, 3], 4]);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});
@@ -45,7 +45,7 @@ test('parallel', t => {
 test('parallel empty array', t => {
 	return asyncP.parallel([])
 	.then((results) => {
-		t.same(results, []);
+		t.deepEqual(results, []);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});
@@ -107,8 +107,8 @@ test('parallel object', t => {
 		}
 	})
 	.then((results) => {
-		t.same(callOrder, [3, 1, 2]);
-		t.same(results, {
+		t.deepEqual(callOrder, [3, 1, 2]);
+		t.deepEqual(results, {
 			one: 1,
 			two: 2,
 			three: [3, 3],

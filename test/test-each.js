@@ -14,7 +14,7 @@ test('each', t => {
 		});
 	})
 	.then(() => {
-		t.same(args, [1, 2, 3]);
+		t.deepEqual(args, [1, 2, 3]);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});
@@ -51,6 +51,6 @@ test('each error', t => {
 	.then(() => {
 		t.fail('should not be called');
 	}, (err) => {
-		t.same(err, 'error');
+		t.deepEqual(err, 'error');
 	});
 });

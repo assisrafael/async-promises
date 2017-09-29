@@ -31,8 +31,8 @@ test('series', t => {
 			});
 		}
 	]).then((results) => {
-		t.same(callOrder, [1, 2, 3]);
-		t.same(results, [1, 2, [3, 3]]);
+		t.deepEqual(callOrder, [1, 2, 3]);
+		t.deepEqual(results, [1, 2, [3, 3]]);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});
@@ -41,7 +41,7 @@ test('series', t => {
 test('series empty array', t => {
 	return asyncP.series([])
 	.then((results) => {
-		t.same(results, []);
+		t.deepEqual(results, []);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});
@@ -94,8 +94,8 @@ test('series object', t => {
 		}
 	})
 	.then((results) => {
-		t.same(callOrder, [1, 2, 3]);
-		t.same(results, {
+		t.deepEqual(callOrder, [1, 2, 3]);
+		t.deepEqual(results, {
 			one: 1,
 			two: 2,
 			three: [3, 3]

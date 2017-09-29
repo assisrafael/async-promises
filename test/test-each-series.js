@@ -15,7 +15,7 @@ test('eachSeries', t => {
 		});
 	})
 	.then(() => {
-		t.same(args, arr);
+		t.deepEqual(args, arr);
 	}, (err) => {
 		t.fail(`should not throw an error: ${err}`);
 	});
@@ -52,6 +52,6 @@ test('eachSeries error', t => {
 	.then(() => {
 		t.fail('should not be called');
 	}, (err) => {
-		t.same(err, 'error');
+		t.deepEqual(err, 'error');
 	});
 });
