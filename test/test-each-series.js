@@ -56,6 +56,17 @@ test('eachSeries reject error', t => {
 	});
 });
 
+test('eachSeries throw error', t => {
+	return asyncP.eachSeries([1, 2, 3], (x) => {
+		throw 'error';
+	})
+	.then(() => {
+		t.fail('should not be called');
+	}, (err) => {
+		t.deepEqual(err, 'error');
+	});
+});
+
 test('eachSeries with null element', t => {
 	t.plan(2);
 	return asyncP.eachSeries([null], (x) => {

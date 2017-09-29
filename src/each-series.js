@@ -9,7 +9,15 @@ module.exports = function eachSeries(arr, iterator) {
 		}
 
 		var item = arr[index++];
-		return Promise.resolve(iterator(item)).then(next);
+
+		let promise;
+		try {
+			promise = Promise.resolve(iterator(item))
+		} catch(e) {
+			return Promise.reject(e);
+		}
+
+		return promise.then(next);
 	}
 
 	return next();
