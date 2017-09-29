@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/assisrafael/async-promises/compare/v0.2.0...v0.2.1) (2017-09-29)
+
+
+### Bug Fixes
+
+* **eachSeries:** handle errors thrown by iterator ([f7fc0cb](https://github.com/assisrafael/async-promises/commit/f7fc0cb))
+* **eachSeries:** handle null elements in the array ([583ed7d](https://github.com/assisrafael/async-promises/commit/583ed7d))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/assisrafael/async-promises/compare/v0.1.2...v0.2.0) (2016-06-24)
 
