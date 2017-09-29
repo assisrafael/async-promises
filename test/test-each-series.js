@@ -45,7 +45,7 @@ test('eachSeries empty array, with other property on the array', t => {
 	});
 });
 
-test('eachSeries error', t => {
+test('eachSeries reject error', t => {
 	return asyncP.eachSeries([1, 2, 3], (x) => {
 		return Promise.reject('error');
 	})
@@ -53,5 +53,17 @@ test('eachSeries error', t => {
 		t.fail('should not be called');
 	}, (err) => {
 		t.deepEqual(err, 'error');
+	});
+});
+
+test('eachSeries with null element', t => {
+	t.plan(2);
+	return asyncP.eachSeries([null], (x) => {
+		t.pass('Iterator called');
+	})
+	.then(() => {
+		t.pass('should return a promise or a thenable');
+	}, () => {
+		t.fail('should not be called');
 	});
 });
