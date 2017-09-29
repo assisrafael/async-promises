@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "ava",
+    "coverage": "nyc ava",
     "release": "standard-version"
   },
   "repository": {
@@ -29,6 +30,20 @@
   "homepage": "https://github.com/assisrafael/async-promises#readme",
   "devDependencies": {
     "ava": "^0.22.0",
+    "nyc": "^11.2.1",
     "standard-version": "^4.2.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 92,
+    "statements": 92,
+    "functions": 91,
+    "branches": 75,
+    "reporter": [
+      "text",
+      "text-summary",
+      "html"
+    ],
+    "report-dir": "./coverage/"
   }
 }
