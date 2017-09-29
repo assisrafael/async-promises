@@ -143,3 +143,23 @@ test('parallel falsy return values', t => {
 		t.fail(`should not throw an error: ${err}`);
 	});
 });
+
+test('parallel without array or object', t => {
+	return asyncP.parallel('string not allowed')
+		.then(() => {
+			t.fail(`should not be executed`);
+		}, (err) => {
+			t.pass(`should throw an error: ${err}`);
+		});
+});
+
+test('parallel with promises inside array', t => {
+	return asyncP.parallel([
+		Promise.resolve(1),
+		function() {
+			return 2;
+		}
+	]).then((r) => {
+		t.deepEqual(r, [1, 2]);
+	});
+});

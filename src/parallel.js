@@ -29,9 +29,9 @@ function parallelObjectTasks(tasks) {
 module.exports = function parallel(tasks) {
 	if (Array.isArray(tasks)) {
 		return parallelArrayTasks(tasks);
-	} else if (typeof tasks !== 'object') {
-		return Promise.reject(new Error('First argument to parallel must be an array or an object'));
+	} else if (typeof tasks === 'object') {
+		return parallelObjectTasks(tasks);
 	}
 
-	return parallelObjectTasks(tasks);
+	return Promise.reject(new Error('First argument to parallel must be an array or an object'));
 };

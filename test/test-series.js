@@ -129,3 +129,12 @@ test('series falsy return values', t => {
 		t.fail(`should not throw an error: ${err}`);
 	});
 });
+
+test('series should not allow values other than array and object', t => {
+	return asyncP.series('should not allow and string')
+		.then(() => {
+			t.fail(`should not be executed`);
+		}, (err) => {
+			t.pass(`should not throw an error: ${err}`);
+		});
+});

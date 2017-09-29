@@ -7,13 +7,8 @@ module.exports = function waterfall(tasks) {
 		return Promise.reject(new Error('First argument to waterfall must be an array of functions'));
 	}
 
-	function nextItem() {
+	function nextItem(value) {
 		var task = tasks.shift();
-
-		var value = arguments[0];
-		if (arguments.length > 1) {
-			value = Array.prototype.slice.call(arguments);
-		}
 
 		if (!task) {
 			return Promise.resolve(value);

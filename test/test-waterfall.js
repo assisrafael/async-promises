@@ -63,12 +63,28 @@ test('waterfall non-array', t => {
 	});
 });
 
-test('waterfall error', t => {
+test('waterfall reject error', t => {
 	return asyncP.waterfall([
 		function() {
 			return new Promise(function(resolve) {
 				throw new Error('error');
 			});
+		},
+		function() {
+			t.fail('should not be called');
+		}
+	])
+	.then(() => {
+		t.fail('should not be called');
+	}, (err) => {
+		t.is(err.message, 'error');
+	});
+});
+
+test('waterfall throw error', t => {
+	return asyncP.waterfall([
+		function() {
+			throw new Error('error');
 		},
 		function() {
 			t.fail('should not be called');

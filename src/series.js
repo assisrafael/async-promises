@@ -29,9 +29,9 @@ function seriesObjectTasks(tasks) {
 module.exports = function series(tasks) {
 	if (Array.isArray(tasks)) {
 		return seriesArrayTasks(tasks);
-	} else if (typeof tasks !== 'object') {
-		return Promise.reject(new Error('Invalid parameter type'));
+	} else if (typeof tasks === 'object') {
+		return seriesObjectTasks(tasks);
 	}
 
-	return seriesObjectTasks(tasks);
+	return Promise.reject(new Error('Invalid parameter type'));
 };
