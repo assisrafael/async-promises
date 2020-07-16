@@ -1,14 +1,17 @@
 'use strict';
 
 module.exports = function range(start, end, step) {
-	var index = -1,
-		length = Math.max(Math.ceil((end - start) / (step || 1)), 0),
-		result = Array(length);
+  let index = -1,
+    length = Math.max(Math.ceil((end - start) / (step || 1)), 0);
 
-	while (length--) {
-		result[++index] = start;
-		start += step;
-	}
+  const result = Array(length);
 
-	return result;
-}
+  while (length > 0) {
+    index += 1;
+    result[index] = start;
+    start += step;
+    length -= 1;
+  }
+
+  return result;
+};

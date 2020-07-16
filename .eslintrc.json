@@ -1,0 +1,37 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-body-style": "error",
+    "no-console": "error",
+    "no-else-return": ["error", { "allowElseIf": false }],
+    "no-plusplus": "error",
+    "no-unused-expressions": "error",
+    "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "no-var": "error",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": ["const", "let", "var", "directive", "if", "break"], "next": "*" },
+      { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] },
+      { "blankLine": "any", "prev": "directive", "next": "directive" }
+    ],
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "prefer-arrow-callback": "error",
+    "quote-props": "off",
+    "quotes": "off"
+  }
+}

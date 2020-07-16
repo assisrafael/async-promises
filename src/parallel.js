@@ -1,37 +1,35 @@
 'use strict';
 
-let asyncEach = require('./each.js');
+const asyncEach = require('./each.js');
 
 function parallelArrayTasks(tasks) {
-	return Promise.all(tasks.map(function(task) {
-		return typeof task === 'function' ? task() : task;
-	}));
+  return Promise.all(tasks.map((task) => (typeof task === 'function' ? task() : task)));
 }
 
 function parallelObjectTasks(tasks) {
-	var results = {};
+  const results = {};
 
-	return asyncEach(Object.keys(tasks), function(key) {
-		var promise = tasks[key];
+  return asyncEach(Object.keys(tasks), (key) => {
+    let promise = tasks[key];
 
-		if (typeof promise === 'function') {
-			promise = promise();
-		}
+    if (typeof promise === 'function') {
+      promise = promise();
+    }
 
-		return Promise.resolve(promise).then(function(result) {
-			results[key] = result;
-		});
-	}).then(function() {
-		return results;
-	});
+    return Promise.resolve(promise).then((result) => {
+      results[key] = result;
+    });
+  }).then(() => results);
 }
 
 module.exports = function parallel(tasks) {
-	if (Array.isArray(tasks)) {
-		return parallelArrayTasks(tasks);
-	} else if (typeof tasks === 'object') {
-		return parallelObjectTasks(tasks);
-	}
+  if (Array.isArray(tasks)) {
+    return parallelArrayTasks(tasks);
+  }
 
-	return Promise.reject(new Error('First argument to parallel must be an array or an object'));
+  if (typeof tasks === 'object') {
+    return parallelObjectTasks(tasks);
+  }
+
+  return Promise.reject(new Error('First argument to parallel must be an array or an object'));
 };
